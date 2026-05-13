@@ -1,0 +1,244 @@
+---
+import Layout from "../layouts/Layout.astro";
+import banner from "../assets/PinoleroBanner.webp";
+import nosotros from "../assets/nosotros.webp";
+
+import camisetas from "../assets/Camisetas.webp";
+import totebags from "../assets/ToteBags.webp";
+import camisablanca from "../assets/CamisaBlanca.webp";
+import mugs from "../assets/mugs.webp";
+
+import facebook from "../assets/icons/facebook.svg";
+import instagram from "../assets/icons/instagram.svg";
+import tiktok from "../assets/icons/tiktok.svg";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+    {/* HEADER */}
+    <header class="header">
+        <div class="container header-content">
+            <img
+                src={banner.src}
+                alt="Banner principal de PinoleroPrints"
+                class="banner"
+            />
+            <button class="menu-btn"> ☰ </button>
+
+            <nav class="nav">
+                <a href="#inicio"> Inicio </a>
+                <a href="#servicios"> Servicios </a>
+                <a href="#catalogo"> Catálogo </a>
+                <a href="#nosotros"> Nosotros </a>
+            </nav>
+
+            <a
+                href="https://wa.me/50588207075"
+                target="_blank"
+                class="btn-primary"
+            >
+                WhatsApp
+            </a>
+        </div>
+    </header>
+
+    {/* HERO */}
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="badge">Personalización • Diseño • Producción</span>
+
+                <h1 class="hero-title">
+                    Tu idea.
+                    <span>Nuestra impresión.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Creamos productos personalizados con acabados premium en
+                    sublimación, DTF, bordado y grabado láser.
+                </p>
+
+                <div class="hero-buttons">
+                    <a
+                        href="https://wa.me/50588207075"
+                        target="_blank"
+                        class="btn-primary big"
+                    >
+                        Cotizar por WhatsApp
+                    </a>
+
+                    <a href="#catalogo" class="btn-secondary big">
+                        Ver catálogo
+                    </a>
+                </div>
+            </div>
+
+            <img src={camisablanca.src} class="hero-image" />
+        </div>
+    </section>
+
+    {/* SERVICIOS */}
+    <section id="servicios" class="section container">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones profesionales para personalización y branding.</p>
+        </div>
+
+        <div class="cards-grid">
+            {
+                [
+                    "Sublimación",
+                    "Impresión DTF",
+                    "Bordado",
+                    "Grabado Láser",
+                    "Diseño Gráfico",
+                    "Personalización Empresarial",
+                ].map((servicio) => (
+                    <div class="card">
+                        <h3>{servicio}</h3>
+                        <p>
+                            Servicio profesional de alta calidad para
+                            personalización.
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    {/* CATALOGO */}
+    <section id="catalogo" class="catalogo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Catálogo</h2>
+                <p>Productos personalizados disponibles.</p>
+            </div>
+
+            <div class="cards-grid">
+                {
+                    [
+                        {
+                            nombre: "Camisetas",
+                            imagen: camisetas,
+                        },
+                        {
+                            nombre: "Tote Bags",
+                            imagen: totebags,
+                        },
+                        {
+                            nombre: "Mugs",
+                            imagen: mugs,
+                        },
+                    ].map((producto) => (
+                        <div class="product-card">
+                            <img src={producto.imagen.src} />
+
+                            <div class="product-content">
+                                <h3>{producto.nombre}</h3>
+
+                                <a
+                                    href="https://wa.me/50588207075"
+                                    target="_blank"
+                                    class="btn-primary"
+                                >
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    {/* NOSOTROS */}
+    <section id="nosotros" class="section container">
+        <div class="about-grid">
+            <div>
+                <h2 class="about-title">Sobre Pinolero Prints</h2>
+
+                <p class="about-text">
+                    Somos una marca enfocada en personalización profesional,
+                    diseño moderno y producción de calidad.
+                </p>
+
+                <p class="about-text">
+                    Trabajamos con clientes individuales, negocios y marcas que
+                    buscan destacar con productos personalizados premium.
+                </p>
+            </div>
+
+            <img src={nosotros.src} alt="Pinolero Prints" class="about-image" />
+        </div>
+    </section>
+
+    {/* FOOTER */}
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h3 class="footer-title">PINOLERO PRINTS</h3>
+                <p class="footer-p">Diseño • Personalización • Producción</p>
+            </div>
+
+            <a
+                href="https://wa.me/50557764961"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="copyright"
+            >
+                <p>
+                    © 2026 PinoleroPrints · Sitio desarrollado en colaboración
+                    con RK8
+                </p>
+            </a>
+
+            <ul class="footer-links">
+                <li>
+                    <a
+                        class="link"
+                        href="https://www.instagram.com/pinoleroprints?igsh=eWVpdWpoZWFpbmhs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="icon"
+                            src={instagram.src}
+                            alt="Instagram icon"
+                        />
+                        <span>Instagram</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="link"
+                        href="https://www.tiktok.com/@pinolero.prints?_r=1&_t=ZS-96E0c3ZmL3s"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img class="icon" src={tiktok.src} alt="TikTok icon" />
+                        <span>TikTok</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="link"
+                        href="https://www.facebook.com/share/1H3nidLACr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="icon"
+                            src={facebook.src}
+                            alt="Facebook icon"
+                        />
+                        <span>Facebook</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</Layout>
