@@ -3,20 +3,55 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Content-Language" content="es" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <meta
+            name="description"
+            content="PinoleroPrints ofrece diseños personalizados, sublimación y productos creativos en Nicaragua."
+        />
+
+        <!-- Open Graph -->
+        <meta
+            property="og:title"
+            content="PinoleroPrints | Diseños y Sublimación en Nicaragua"
+        />
+        <meta
+            property="og:description"
+            content="Diseños personalizados, sublimación y productos creativos."
+        />
+        <meta
+            property="og:image"
+            content="https://pinoleroprints.rk8.dev/preview.png"
+        />
+        <meta property="og:url" content="https://pinoleroprints.rk8.dev" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter/X -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="PinoleroPrints | Diseños y Sublimación en Nicaragua"
+        />
+        <meta
+            name="twitter:description"
+            content="Diseños personalizados, sublimación y productos creativos."
+        />
+        <meta
+            name="twitter:image"
+            content="https://pinoleroprints.rk8.dev/preview.png"
+        />
+
+        <title>PinoleroPrints | Diseños y Sublimación en Nicaragua</title>
     </head>
     <body>
         <slot />
     </body>
 </html>
-
 <style>
     html,
     body {
