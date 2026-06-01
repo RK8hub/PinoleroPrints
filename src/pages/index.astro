@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import banner from "../assets/PinoleroBanner.webp";
 import nosotros from "../assets/nosotros.webp";
@@ -20,10 +21,11 @@ import tiktok from "../assets/icons/tiktok.svg";
     {/* HEADER */}
     <header class="header">
         <div class="container header-content">
-            <img
-                src={banner.src}
+            <Image
+                src={banner}
                 alt="Banner principal de PinoleroPrints"
                 class="banner"
+                loading="eager"
             />
             <button class="menu-btn"> ☰ </button>
 
@@ -75,7 +77,12 @@ import tiktok from "../assets/icons/tiktok.svg";
                 </div>
             </div>
 
-            <img src={camisablanca.src} class="hero-image" />
+            <Image
+                src={camisablanca}
+                alt="Imagen de una persona modelando una camisa en blanco"
+                class="hero-image"
+                loading="eager"
+            />
         </div>
     </section>
 
@@ -122,21 +129,28 @@ import tiktok from "../assets/icons/tiktok.svg";
                         {
                             nombre: "Camisetas",
                             imagen: camisetas,
+                            alt: "Mujer Modelado camiseta negra con una imagen de una mano de esqueleto",
                         },
                         {
                             nombre: "Tote Bags",
                             imagen: totebags,
+                            alt: "hombre posando extendiendo la mano con una Tote Bags de color negro y mostaza",
                         },
                         {
                             nombre: "Mugs",
                             imagen: mugs,
+                            alt: "Mug, tazon de ceramica con la imagen de el guarda barranco",
                         },
                     ].map((producto) => (
                         <div class="product-card">
-                            <img src={producto.imagen.src} />
+                            <Image
+                                src={producto.imagen}
+                                loading="lazy"
+                                alt={producto.alt}
+                            />
 
                             <div class="product-content">
-                                <h3>{producto.nombre}</h3>
+                                <span>{producto.nombre}</span>
 
                                 <a
                                     href="https://wa.me/50588207075"
@@ -170,7 +184,7 @@ import tiktok from "../assets/icons/tiktok.svg";
                 </p>
             </div>
 
-            <img src={nosotros.src} alt="Pinolero Prints" class="about-image" />
+            <Image src={nosotros} alt="Pinolero Prints" class="about-image" />
         </div>
     </section>
 
@@ -190,54 +204,51 @@ import tiktok from "../assets/icons/tiktok.svg";
             >
                 <p>
                     © 2026 PinoleroPrints · Sitio desarrollado en colaboración
-                    con RK8
+                    con RK8`
                 </p>
             </a>
 
             <ul class="footer-links">
-                <li>
-                    <a
-                        class="link"
-                        href="https://www.instagram.com/pinoleroprints?igsh=eWVpdWpoZWFpbmhs"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            class="icon"
-                            src={instagram.src}
-                            alt="Instagram icon"
-                        />
-                        <span>Instagram</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        class="link"
-                        href="https://www.tiktok.com/@pinolero.prints?_r=1&_t=ZS-96E0c3ZmL3s"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img class="icon" src={tiktok.src} alt="TikTok icon" />
-                        <span>TikTok</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        class="link"
-                        href="https://www.facebook.com/share/1H3nidLACr/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            class="icon"
-                            src={facebook.src}
-                            alt="Facebook icon"
-                        />
-                        <span>Facebook</span>
-                    </a>
-                </li>
+                {
+                    [
+                        {
+                            nombre: "Instagram",
+                            imagen: instagram,
+                            alt: "Icono de Instagram",
+                            url: "https://www.instagram.com/pinoleroprints?igsh=eWVpdWpoZWFpbmhs",
+                        },
+                        {
+                            nombre: "TikTok",
+                            imagen: tiktok,
+                            alt: "Icono de Tiktok",
+                            url: "https://www.tiktok.com/@pinolero.prints?_r=1&_t=ZS-96E0c3ZmL3s",
+                        },
+                        {
+                            nombre: "Facebook",
+                            imagen: facebook,
+                            alt: "Icono de facebook",
+                            url: "https://www.facebook.com/share/1H3nidLACr/",
+                        },
+                    ].map((enlace) => (
+                        <li>
+                            <a
+                                class="link"
+                                href={enlace.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={enlace.nombre}
+                            >
+                                <Image
+                                    class="icon"
+                                    src={enlace.imagen}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                                <span>{enlace.nombre}</span>
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
         </div>
     </footer>
