@@ -96,19 +96,40 @@ import tiktok from "../assets/icons/tiktok.svg";
         <div class="cards-grid">
             {
                 [
-                    "Sublimación",
-                    "Impresión DTF",
-                    "Bordado",
-                    "Grabado Láser",
-                    "Diseño Gráfico",
-                    "Personalización Empresarial",
+                    {
+                        nombre: "Sublimación",
+                        descripcion:
+                            "Personalización de tazas, camisetas y artículos promocionales con acabados duraderos.",
+                    },
+                    {
+                        nombre: "Impresión DTF",
+                        descripcion:
+                            "Impresión textil de alta calidad para prendas con colores vibrantes y resistentes.",
+                    },
+                    {
+                        nombre: "Bordado",
+                        descripcion:
+                            "Bordados profesionales para uniformes, gorras y prendas corporativas.",
+                    },
+                    {
+                        nombre: "Grabado Láser",
+                        descripcion:
+                            "Grabados precisos y personalizados en madera, acrílico, metal y otros materiales.",
+                    },
+                    {
+                        nombre: "Diseño Gráfico",
+                        descripcion:
+                            "Diseños creativos para marcas, publicidad y material promocional.",
+                    },
+                    {
+                        nombre: "Personalización Empresarial",
+                        descripcion:
+                            "Soluciones personalizadas para fortalecer la identidad visual de tu empresa.",
+                    },
                 ].map((servicio) => (
                     <div class="card">
-                        <h3>{servicio}</h3>
-                        <p>
-                            Servicio profesional de alta calidad para
-                            personalización.
-                        </p>
+                        <h3>{servicio.nombre}</h3>
+                        <p>{servicio.descripcion}</p>
                     </div>
                 ))
             }
