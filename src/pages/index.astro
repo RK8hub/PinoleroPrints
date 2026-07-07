@@ -218,14 +218,14 @@ import tiktok from "../assets/icons/tiktok.svg";
             </div>
 
             <a
-                href="https://wa.me/50557764961"
+                href="https://rk8.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="copyright"
             >
                 <p>
                     © 2026 PinoleroPrints · Sitio desarrollado en colaboración
-                    con RK8`
+                    con RK8
                 </p>
             </a>
 
@@ -274,3 +274,22 @@ import tiktok from "../assets/icons/tiktok.svg";
         </div>
     </footer>
 </Layout>
+
+<script>
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector(".nav");
+
+    menuBtn?.addEventListener("click", () => {
+        nav?.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!menuBtn?.contains(e.target) && !nav?.contains(e.target)) {
+            nav?.classList.remove("active");
+        }
+    });
+
+    nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => nav.classList.remove("active"));
+    });
+</script>
