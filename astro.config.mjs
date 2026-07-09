@@ -8,6 +8,15 @@ export default defineConfig({
   site: "https://pinoleroprints.rk8.dev",
   // base ya NO va, porque tienes dominio propio
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss({
+        resolveOptions: {
+          tsconfigPaths: {
+            root: process.cwd(),
+            configNames: ["tsconfig.json"],
+          },
+        },
+      }),
+    ],
   },
 });
