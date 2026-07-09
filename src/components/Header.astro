@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import { banner } from "@/assets";
+import type { NavLink } from "@/constants";
+
+export interface Props {
+  navLinks: NavLink[];
+  whatsappUrl: string;
+}
+
+const { navLinks, whatsappUrl } = Astro.props;
+---
+
+<header class="header">
+  <div class="container header-content">
+    <Image
+      src={banner}
+      alt="Banner principal de PinoleroPrints"
+      class="banner"
+      loading="eager"
+    />
+    <button class="menu-btn"> ☰ </button>
+
+    <nav class="nav">
+      {navLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+
+    <a href={whatsappUrl} target="_blank" class="btn-primary">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.querySelector(".menu-btn");
+  const nav = document.querySelector(".nav");
+
+  menuBtn?.addEventListener("click", () => {
+    nav?.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menuBtn?.contains(e.target) && !nav?.contains(e.target)) {
+      nav?.classList.remove("active");
+    }
+  });
+
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => nav.classList.remove("active"));
+  });
+</script>

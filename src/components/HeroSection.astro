@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { camisablanca } from "@/assets";
+
+export interface Props {
+  whatsappUrl: string;
+}
+
+const { whatsappUrl } = Astro.props;
+---
+
+<section id="inicio" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Personalización • Diseño • Producción</span>
+
+      <h1 class="hero-title">
+        Tu idea.
+        <span>Nuestra impresión.</span>
+      </h1>
+
+      <p class="hero-text">
+        Creamos productos personalizados con acabados premium en
+        sublimación, DTF, bordado y grabado láser.
+      </p>
+
+      <div class="hero-buttons">
+        <a href={whatsappUrl} target="_blank" class="btn-primary big">
+          Cotizar por WhatsApp
+        </a>
+
+        <a href="#catalogo" class="btn-secondary big">
+          Ver catálogo
+        </a>
+      </div>
+    </div>
+
+    <Image
+      src={camisablanca}
+      alt="Imagen de una persona modelando una camisa en blanco"
+      class="hero-image"
+      loading="eager"
+    />
+  </div>
+</section>

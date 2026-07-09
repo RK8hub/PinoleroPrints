@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import type { Product } from "@/constants";
+
+export interface Props {
+  products: Omit<Product, "imagen">[];
+  productImages: ImageMetadata[];
+  whatsappUrl: string;
+}
+
+const { products, productImages, whatsappUrl } = Astro.props;
+---
+
+<section id="catalogo" class="catalogo">
+  <div class="container">
+    <div class="section-header">
+      <h2>Catálogo</h2>
+      <p>Productos personalizados disponibles.</p>
+    </div>
+
+    <div class="cards-grid">
+      {products.map((producto, i) => (
+        <div class="product-card">
+          <Image
+            src={productImages[i]}
+            loading="lazy"
+            alt={producto.alt}
+          />
+
+          <div class="product-content">
+            <span>{producto.nombre}</span>
+
+            <a href={whatsappUrl} target="_blank" class="btn-primary">
+              Comprar
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

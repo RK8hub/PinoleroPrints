@@ -1,0 +1,25 @@
+---
+import type { Service } from "@/constants";
+
+export interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<section id="servicios" class="section container">
+  <div class="section-header">
+    <h2>Nuestros Servicios</h2>
+    <p>Soluciones profesionales para personalización y branding.</p>
+  </div>
+
+  <div class="cards-grid">
+    {services.map((servicio) => (
+      <div class="card">
+        <h3>{servicio.nombre}</h3>
+        <p>{servicio.descripcion}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import { facebook, instagram, tiktok } from "@/assets/icons";
+import { URLS } from "@/constants";
+
+export interface SocialLink {
+  nombre: string;
+  url: string;
+}
+
+const socialLinks: SocialLink[] = [
+  { nombre: "Instagram", url: URLS.instagram },
+  { nombre: "TikTok", url: URLS.tiktok },
+  { nombre: "Facebook", url: URLS.facebook },
+];
+
+const socialIcons: Record<string, ImageMetadata> = {
+  Instagram: instagram,
+  TikTok: tiktok,
+  Facebook: facebook,
+};
+---
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div>
+      <h3 class="footer-title">PINOLERO PRINTS</h3>
+      <p class="footer-p">Diseño • Personalización • Producción</p>
+    </div>
+
+    <a href={URLS.rk8} target="_blank" rel="noopener noreferrer" class="copyright">
+      <p>
+        © 2026 PinoleroPrints · Sitio desarrollado en colaboración con RK8
+      </p>
+    </a>
+
+    <ul class="footer-links">
+      {socialLinks.map((enlace) => (
+        <li>
+          <a
+            class="link"
+            href={enlace.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={enlace.nombre}
+          >
+            <Image
+              class="icon"
+              src={socialIcons[enlace.nombre]}
+              alt=""
+              aria-hidden="true"
+            />
+            <span>{enlace.nombre}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</footer>

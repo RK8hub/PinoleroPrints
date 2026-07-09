@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import { nosotros } from "@/assets";
+---
+
+<section id="nosotros" class="section container">
+  <div class="about-grid">
+    <div>
+      <h2 class="about-title">Sobre Pinolero Prints</h2>
+
+      <p class="about-text">
+        Somos una marca enfocada en personalización profesional,
+        diseño moderno y producción de calidad.
+      </p>
+
+      <p class="about-text">
+        Trabajamos con clientes individuales, negocios y marcas que
+        buscan destacar con productos personalizados premium.
+      </p>
+    </div>
+
+    <Image src={nosotros} alt="Pinolero Prints" class="about-image" />
+  </div>
+</section>
