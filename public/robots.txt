@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pinoleroprints.rk8.dev/sitemap.xml

@@ -14,6 +14,7 @@ import "@/styles/global.css";
             name="description"
             content="PinoleroPrints ofrece diseños personalizados, sublimación y productos creativos en Nicaragua."
         />
+        <link rel="canonical" href="https://pinoleroprints.rk8.dev/" />
 
         <!-- Open Graph -->
         <meta
@@ -47,6 +48,32 @@ import "@/styles/global.css";
         />
 
         <title>PinoleroPrints | Diseños y Sublimación en Nicaragua</title>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "PinoleroPrints",
+                "description": "Diseños personalizados, sublimación y productos creativos en Nicaragua.",
+                "url": "https://pinoleroprints.rk8.dev",
+                "image": "https://pinoleroprints.rk8.dev/preview.png",
+                "sameAs": [
+                    "https://www.facebook.com/share/1H3nidLACr/",
+                    "https://www.instagram.com/pinoleroprints",
+                    "https://www.tiktok.com/@pinolero.prints"
+                ],
+                "telephone": "+50588207075",
+                "priceRange": "$$",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "NI"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "addressCountry": "NI"
+                }
+            }
+        </script>
     </head>
     <body>
         <slot />
